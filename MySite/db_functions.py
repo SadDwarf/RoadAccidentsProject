@@ -82,7 +82,7 @@ class DbFunctions():
                 'vehicle.vehicle_age = user_info.vehicle_age and user_info.gender = casualty.casualty_sex and ' \
                 'user_info.age = casualty.casualty_age;'
         self.cur.execute(query)
-        print(query)
+        
         res = self.cur.fetchall()
 
         return round((res[0][0] / self.all_casualties) * 100, 4)
@@ -95,7 +95,7 @@ class DbFunctions():
                 ' where user_info.userid =\'' + user_id + '\';'
 
         self.cur.execute(query)
-        print(query)
+        
         res = self.cur.fetchall()
 
         return round((res[0][0] / self.all_casualties) * 100, 4)
@@ -106,7 +106,7 @@ class DbFunctions():
                 ' where user_info.userid =\'' + user_id + '\';'
 
         self.cur.execute(query)
-        print(query)
+        
         res = self.cur.fetchall()
 
         return round((res[0][0] / self.all_casualties) * 100, 4)
@@ -117,7 +117,7 @@ class DbFunctions():
                 ' where user_info.userid =\'' + user_id + '\';'
 
         self.cur.execute(query)
-        print(query)
+        
         res = self.cur.fetchall()
 
         return round((res[0][0] / self.all_casualties) * 100, 4)
@@ -128,7 +128,7 @@ class DbFunctions():
                 ' where user_info.userid =\'' + user_id + '\';'
 
         self.cur.execute(query)
-        print(query)
+        
         res = self.cur.fetchall()
 
         return round((res[0][0] / self.all_casualties) * 100, 4)
@@ -139,7 +139,7 @@ class DbFunctions():
                 'casualty.acc_index = vehicle.acc_index and vehicle.veh_type = user_info.veh_type' \
                 ' and casualty.casualty_age = user_info.age;'
         self.cur.execute(query)
-        print(query)
+        
         res = self.cur.fetchall()
         return round((res[0][0] / self.all_casualties) * 100, 4)
 
@@ -150,7 +150,7 @@ class DbFunctions():
                 'casualty.acc_index = vehicle.acc_index and vehicle.veh_type = user_info.veh_type' \
                 ' and casualty.casualty_sex = user_info.gender;'
         self.cur.execute(query)
-        print(query)
+        
         res = self.cur.fetchall()
 
         return round((res[0][0] / self.all_casualties) * 100, 4)
@@ -162,7 +162,7 @@ class DbFunctions():
                 'casualty.acc_index = vehicle.acc_index and user_info.vehicle_age = vehicle.vehicle_age' \
                 ' and casualty.casualty_age = user_info.age;'
         self.cur.execute(query)
-        print(query)
+        
         res = self.cur.fetchall()
 
         return round((res[0][0] / self.all_casualties) * 100, 4)
@@ -174,7 +174,7 @@ class DbFunctions():
                 ' casualty.casualty_sex = user_info.gender and casualty.casualty_age = user_info.age;'
 
         self.cur.execute(query)
-        print(query)
+        
         res = self.cur.fetchall()
         return round((res[0][0] / self.all_casualties) * 100, 4)
 
@@ -185,7 +185,7 @@ class DbFunctions():
                 ' and user_info.vehicle_age = vehicle.vehicle_age;'
 
         self.cur.execute(query)
-        print(query)
+        
         res = self.cur.fetchall()
         return round((res[0][0] / self.all_casualties) * 100, 4)
 
@@ -195,7 +195,7 @@ class DbFunctions():
                 'casualty.acc_index = vehicle.acc_index and user_info.gender = casualty.casualty_sex and ' \
                 'user_info.vehicle_age = vehicle.vehicle_age and casualty.casualty_age = user_info.age;'
         self.cur.execute(query)
-        print(query)
+        
         res = self.cur.fetchall()
         return round((res[0][0] / self.all_casualties) * 100, 4)
 
@@ -205,7 +205,7 @@ class DbFunctions():
                 'casualty.acc_index = vehicle.acc_index and user_info.vehicle_age = vehicle.vehicle_age and ' \
                 'user_info.veh_type = vehicle.veh_type and casualty.casualty_age = user_info.age;'
         self.cur.execute(query)
-        print(query)
+        
         res = self.cur.fetchall()
 
         return round((res[0][0] / self.all_casualties) * 100, 4)
@@ -217,7 +217,7 @@ class DbFunctions():
                 'casualty.casualty_age = user_info.age and casualty.casualty_sex = user_info.gender;'
 
         self.cur.execute(query)
-        print(query)
+        
         res = self.cur.fetchall()
 
         return round((res[0][0] / self.all_casualties) * 100, 4)
@@ -229,7 +229,7 @@ class DbFunctions():
                 'vehicle.vehicle_age = user_info.vehicle_age and user_info.gender = casualty.casualty_sex;'
 
         self.cur.execute(query)
-        print(query)
+        
         res = self.cur.fetchall()
 
         return round((res[0][0] / self.all_casualties) * 100, 4)
@@ -243,13 +243,13 @@ class DbFunctions():
 
         query = 'select count(accidents.acc_index) from accidents'
         self.cur.execute(query)
-        print(query)
+        
         self.all_casualties = self.cur.fetchall()[0][0]
 
     def show_user_info(self, user_id):
         query = 'select * from user_info where userid=\'' + user_id + '\';'
         self.cur.execute(query)
-        print(query)
+        
         data = self.cur.fetchall()
         res = {}
         for i in range(len(data)):
@@ -285,7 +285,7 @@ class DbFunctions():
                 values += '\'' + str(value) + '\', '
             query += fields[:-2] + ') ' + values[:-2] + ');'
         self.cur.execute(query)
-        print(query)
+        
         self.connection.commit()
 
 
